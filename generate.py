@@ -37,6 +37,7 @@ CLIENTS = [
     {"name": "Outbound Sales Pros", "slug": "outbound-sales-pros"},
     {"name": "Onevision Resources", "slug": "onevision-resources"},
     {"name": "Sensor Tower", "slug": "sensor-tower"},
+    {"name": "Conveyor", "slug": "conveyor"},
 ]
 
 # Per-client copy overrides applied on top of the normal name substitution,
@@ -44,6 +45,9 @@ CLIENTS = [
 # {slug: [(exact text in template.html, replacement)]}
 CLIENT_OVERRIDES = {
     "sensor-tower": [
+        ("At $300,000+ in media,", "At $400,000+ in media,"),
+    ],
+    "conveyor": [
         ("At $300,000+ in media,", "At $400,000+ in media,"),
     ],
 }
