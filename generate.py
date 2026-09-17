@@ -38,6 +38,7 @@ CLIENTS = [
     {"name": "Onevision Resources", "slug": "onevision-resources"},
     {"name": "Sensor Tower", "slug": "sensor-tower"},
     {"name": "Conveyor", "slug": "conveyor"},
+    {"name": "Testimonial Hero", "slug": "testimonial-hero"},
 ]
 
 # Per-client copy overrides applied on top of the normal name substitution,
