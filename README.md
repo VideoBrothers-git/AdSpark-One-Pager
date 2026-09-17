@@ -28,6 +28,17 @@ Add `{"name": "...", "slug": "..."}` to the `CLIENTS` list near the top
 of `generate.py`, then run it. The slug becomes the URL path:
 `/clients/<slug>/`.
 
+## Adding a client's logo to the masthead
+
+Drop the logo file into `assets/logos/`, named after the client's slug —
+`assets/logos/<slug>.svg` (preferred) or `.png` / `.jpg` / `.webp`. Re-run
+`generate.py`; it picks up the file automatically and adds it next to
+"Prepared for [Client]" on that client's bespoke page only. No logo file
+for a slug means no logo shows — including on the generic page, which
+never gets one. Since these files live in the repo, dragging them into
+this folder in Finder works (unlike attaching them in chat, which never
+reaches disk); pushing them to `main` deploys them like anything else.
+
 ## Why a generator instead of one file with a URL parameter
 
 Six spots in the copy read differently for a named prospect ("EvenUp's

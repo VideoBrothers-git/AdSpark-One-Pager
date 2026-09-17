@@ -24,15 +24,22 @@ a{color:var(--blue-lit);text-decoration:none} a:hover{text-decoration:underline}
 .reveal-body{padding:var(--s-4) 18px var(--s-3)}
 .reveal-body .eyebrow:first-child{margin-top:0}
 .reveal-body h3{font-family:var(--display);font-weight:500;color:var(--ink);font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 var(--s-3)}
+.asset-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:var(--s-2)}
+.asset-grid .shot img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-sm);border:1px solid rgba(225,200,50,.4);display:block}
+.asset-grid .asset-photo{grid-column:1/-1}
+.asset-grid .asset-photo img{aspect-ratio:21/9}
+@media(max-width:640px){.asset-grid{grid-template-columns:repeat(2,1fr)}.asset-grid .asset-photo img{aspect-ratio:16/9}}
 .mast{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s-3);flex-wrap:wrap}
 .mast-brand{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .logo{height:26px;width:auto}
 .mast-domain2{font-family:var(--display);font-weight:500;font-size:1rem;color:var(--yellow-lit);letter-spacing:.01em}
 .mast-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.mast-for{display:flex;align-items:center;gap:10px}
-.mast-for-text{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
-.mast-for small{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
-.mast-for b{font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--ink);letter-spacing:-.005em}
+.mast-for{display:flex;align-items:center;gap:12px}
+.mast-for-logo{height:36px;width:36px;object-fit:cover;border-radius:9px;border:1px solid var(--line-soft);flex-shrink:0}
+.mast-for-divider{width:1px;height:30px;background:var(--line-soft);flex-shrink:0}
+.mast-for-text{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:3px}
+.mast-for small{font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);line-height:1}
+.mast-for b{font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--ink);letter-spacing:-.005em;line-height:1}
 @media(max-width:480px){.mast-for-text{align-items:flex-start}}
 @media(max-width:480px){.mast-right,.mast-for{align-items:flex-start}}
 .btn-sm{display:inline-block;background:var(--ink);color:var(--stage);font-weight:600;padding:8px 16px;border-radius:999px;font-size:.85rem;white-space:nowrap}
@@ -49,11 +56,11 @@ a{color:var(--blue-lit);text-decoration:none} a:hover{text-decoration:underline}
 @media(max-width:780px){.hero-grid{grid-template-columns:1fr}}
 .hero-art img{width:100%;display:block;border-radius:var(--r-md);aspect-ratio:4/3;object-fit:cover;border:1px solid rgba(225,200,50,.4)}
 .shot{position:relative;display:block}
-.shot-tag{position:absolute;left:10px;bottom:10px;background:rgba(10,10,10,.72);backdrop-filter:blur(3px);color:var(--ink);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2)}
-h1{font-family:var(--display);font-weight:500;color:var(--ink);font-size:clamp(2.5rem,4.6vw,3.75rem);line-height:1.04;letter-spacing:-.028em;margin:0;text-wrap:balance}
+.shot-tag{position:absolute;left:10px;bottom:10px;max-width:calc(100% - 20px);background:rgba(10,10,10,.72);backdrop-filter:blur(3px);color:var(--ink);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2)}
+h1{font-family:var(--display);font-weight:500;color:var(--ink);font-size:clamp(2.25rem,4.2vw,3.4rem);line-height:1.05;letter-spacing:-.028em;margin:0;text-wrap:balance}
 mark.hl{background:none;color:var(--yellow-lit);font-weight:700;padding:0}
-.lede{font-size:clamp(1.0625rem,1.35vw,1.3125rem);color:var(--ink-2);max-width:60ch;margin:0}
-.lede.compact{font-size:.88rem;color:var(--ink-3);max-width:none;margin-top:-8px}
+.lede{font-size:clamp(1rem,1.2vw,1.2rem);color:var(--ink-2);max-width:60ch;margin:0}
+.lede.compact{font-size:.88rem;color:var(--ink-3);max-width:70ch;margin:-8px 0 var(--s-3)}
 .lede.wide{max-width:80ch}
 .lede b{color:var(--ink);font-weight:600}
 h2{font-family:var(--display);font-weight:500;color:var(--ink);font-size:clamp(1.5rem,2.3vw,2rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 var(--s-2)}
@@ -69,7 +76,7 @@ p{margin:0}
 .deliv li{display:grid;grid-template-columns:44px 1fr;gap:var(--s-2);align-items:start;padding-top:var(--s-2);border-top:1px solid var(--line-soft)}
 .deliv li::before{counter-increment:d;content:counter(d);font-family:var(--display);font-size:1.75rem;line-height:1;color:var(--blue-lit);font-weight:500;padding-top:2px}
 .deliv b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
-.deliv p{color:var(--ink-2);font-size:.98rem}
+.deliv p{color:var(--ink-2);font-size:.98rem;text-wrap:pretty}
 .ex-link{display:inline-block;margin-top:8px;font-size:.85rem;font-weight:600;color:var(--yellow-lit);background:none;border:0;padding:0;font-family:inherit;cursor:pointer;text-align:left}
 .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.82);display:flex;align-items:center;justify-content:center;padding:var(--s-3)}
 .lightbox[hidden]{display:none}
@@ -90,7 +97,7 @@ p{margin:0}
 @media(max-width:700px){.lightbox{padding:0}.lightbox-inner{width:100%;height:100%;border-radius:0}}
 .tag-inline.every{color:var(--yellow-lit);background:rgba(225,200,50,.16);border-color:rgba(225,200,50,.45)}
 .tag-inline.tier10{color:var(--blue-lit);background:rgba(29,136,254,.16);border-color:rgba(29,136,254,.45)}
-.fine.note{margin-top:20px;padding-top:14px;border-top:1px solid var(--line-soft);max-width:58ch;line-height:1.55}
+.fine.note{margin-top:20px;padding-top:14px;border-top:1px solid var(--line-soft);max-width:52ch;line-height:1.55;text-wrap:pretty}
 .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px;margin-top:var(--s-2)}
 .timeline .wk span+span{margin-top:6px}
 .timeline .wk{background:var(--surface-1);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:10px 10px;min-height:96px}
@@ -106,8 +113,8 @@ p{margin:0}
 .pt small{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .pt span{font-family:var(--display);font-weight:500;font-size:1.2rem;color:var(--ink);letter-spacing:-.01em}
 .pt p{color:var(--ink-2);font-size:.92rem;line-height:1.5;margin-top:2px}
-.pt.on{border-color:var(--blue)}
-.pt.on small{color:var(--blue-lit)}
+.pt.on{border-color:var(--yellow)}
+.pt.on small{color:var(--yellow-lit)}
 .price{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-2)}
 @media(max-width:640px){.price{grid-template-columns:1fr}}
 .plate{background:var(--surface-1);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s-3)}
@@ -202,7 +209,7 @@ p{margin:0}
     <a class="mast-domain2" href="https://freeb2bads.com" target="_blank" rel="noopener">freeb2bads.com</a>
     </div>
     <div class="mast-right">
-      <div class="mast-for">
+      <div class="mast-for"><!--LOGO_SLOT-->
         <div class="mast-for-text"><small>Prepared for</small><b data-pz="client_name">[Client]</b></div>
       </div>
     </div>
@@ -228,7 +235,7 @@ p{margin:0}
       <div>
         <div class="eyebrow">The problem</div>
         <h2>The single point of failure in every sale is not being remembered.</h2>
-        <p class="lede wide">People buy outcomes, and every outcome starts with a problem. When your buyer runs into that problem enough times, the brand they picture first is the one that wins the deal — whether or not that brand pitched them last. <b style="color:var(--ink)">Video Brothers exists to make that brand yours.</b> Every campaign we build is engineered to be remembered, not just seen.</p>
+        <p class="lede wide">People buy outcomes, and every outcome starts with a problem. When your buyer runs into that problem enough times, the brand they picture first is the one that wins the deal — whether or not that brand pitched them last. <b style="color:var(--ink)">Video Brothers exists to optimize your brand for memorability and ultimate pipeline growth.</b> Every campaign we build is engineered to be remembered, not just seen.</p>
       </div>
       <div class="plate keyline">
         <div class="num">95%</div>
@@ -281,10 +288,10 @@ p{margin:0}
   <section>
     <div class="eyebrow">What you get, and when</div>
     <h2>Five things, six weeks.</h2>
-    <p class="lede compact">Six weeks, start to decision point: the Ad Suite, or the Advertising System.</p>
+    <p class="lede compact" style="max-width:44ch">Six weeks, start to decision point: the Ad Suite, or the Advertising System.</p>
     <ol class="deliv">
       <li><div><b>Discovery and Onboarding <span class="tag-inline">Week 1</span></b><p>About 30 minutes of your time — a questionnaire on your brand, your audience, and the problem you solve — then a kickoff call.</p></div></li>
-      <li><div><b>Campaign Directions <span class="tag-inline">Weeks 2–3</span></b><p>Key message plus creative concepts, presented to <span data-pz="client_name">[Client]</span> within about a week. Directions are picked, not edited: they're deliberately open so you're choosing a path, not wordsmithing one. We judge them partly on legs — how far one idea stretches across channels.</p><button type="button" class="ex-link" data-pdf="concepts">See a real Campaign Concepts deck →</button></div></li>
+      <li><div><b>Campaign Directions <span class="tag-inline">Weeks 2–3</span></b><p>Key message plus creative concepts, presented to <span data-pz="client_name">[Client]</span> within about a week or two. Directions are picked, not edited: they're deliberately open so you're choosing a path, not wordsmithing one. We judge them partly on legs — how far one idea stretches across channels.</p><button type="button" class="ex-link" data-pdf="concepts">See a real Campaign Concepts deck →</button></div></li>
       <li><div><b>Scripts <span class="tag-inline">Weeks 3–4</span></b><p>One 30-second Hero on the main problem, and three 15-second Pillars on the same problem from different angles. The Pillars are not cutdowns — nobody wants a shorter version of something they've already seen — each is its own ad, written and shot on its own. Two or three rounds; most lock on the second.</p><button type="button" class="ex-link" data-pdf="scripts">See a real final shooting script →</button></div></li>
       <li><div><b>Media Plan and Executive Presentation <span class="tag-inline">Weeks 5–6</span> <span class="tag-inline every">Every tier</span></b><p>The go-to-market for running the campaign across channels, built by Elite Media Group alongside the creative — informed by it, and informing it. It's a courtesy at this stage, regardless of which media solutions you end up using — there's no media commitment yet. Delivered as one presentation your leadership can approve in a single sitting.</p></div></li>
       <li><div><b>Production Lookbook <span class="tag-inline">Weeks 5–6</span> <span class="tag-inline tier10">$10,000 tier</span></b><p>Mood, wardrobe, props, tone, characters, environments — everything needed to visualize and shoot the campaign.</p><button type="button" class="ex-link" data-pdf="lookbook">See a real Production Lookbook →</button></div></li>
@@ -338,7 +345,7 @@ p{margin:0}
     <p class="lede compact">Either way, if you go through Ad Spark and decide not to move forward, that's fine — you keep the concepts and the scripts, whether you use them right away or a year from now.</p>
     <div class="price">
       <div class="plate keyline">
-        <div class="eyebrow">Ad Suite</div>
+        <div class="eyebrow">Ad Suite — Production</div>
         <div class="num">$50k–$100k</div>
         <div class="stack">
           <p class="sub">Buy the campaign outright. A full Ad Suite — production through delivery — runs $50,000–$100,000, with <b style="color:var(--ink)">$75,000 the standard plan</b> most clients pick (one Hero, three Pillars, photos from set, social versions of everything).</p>
@@ -347,7 +354,7 @@ p{margin:0}
         <button type="button" class="reveal-trigger" id="adsuiteToggle" aria-expanded="false" aria-controls="adsuitePanel">Want to see exactly what's in an Ad Suite? <span class="chev">→</span></button>
       </div>
       <div class="plate">
-        <div class="eyebrow">The Advertising System</div>
+        <div class="eyebrow">The Advertising System — Production + Distribution</div>
         <div class="num">FREE</div>
         <div class="stack">
           <p class="sub">At $300,000+ in media, Video Brothers funds the production and Elite Media Group runs the media — <b style="color:var(--ink)">the creative itself costs nothing</b>.</p>
@@ -358,33 +365,31 @@ p{margin:0}
     <div class="reveal-full" id="adsuitePanel" hidden>
       <div class="reveal-body">
         <div class="eyebrow">What you get</div>
-        <h3>The $75,000 standard plan, five things.</h3>
+        <h3>The Standard Ad Suite plan, five things.</h3>
+        <p class="lede compact">Every Ad Suite takes around 8 weeks from Ad Spark sign-off. This is where the production and everything that comes with it happens. The client owns everything made for them; talent agreements are pre-negotiated so renewing usage past two years is easy and affordable.</p>
         <ol class="deliv">
-          <li><div><b>Pre-production</b><p>Casting, locations, wardrobe and prop pulls — everything specified in the Ad Spark lookbook gets built out and locked before anyone shows up on set.</p></div></li>
-          <li><div><b>Production days</b><p>One or two days on set depending on the plan. Days on set, cast size, locations, and set builds are what move a quote between $50,000 and $100,000 — the idea doesn't move it, a great script costs the same to shoot as a mediocre one.</p></div></li>
-          <li><div><b>One Hero, three Pillars</b><p>The 30-second Hero and three 15-second Pillars locked back in Ad Spark, all shot on set. The Pillars are not cutdowns — each is its own ad, written and shot on its own.</p></div></li>
-          <li><div><b>Photos from set <span class="tag-inline every">Standard plan and up</span></b><p>Real stills from the shoot day for the site, decks, and paid social — not stock, not renders. Comes with the $75,000 standard plan and up, not the $50,000 entry budget.</p></div></li>
-          <li><div><b>Every social version</b><p>With and without subtitles, sized for every platform you'll run on, with a recommendation on where each version plays best.</p></div></li>
+          <li><div><b>Pre-production <span class="tag-inline">Weeks 1–4</span></b><p>Casting, locations, wardrobe and prop pulls — everything specified in the Ad Spark lookbook gets built out and locked before anyone shows up on set.</p></div></li>
+          <li><div><b>Production days <span class="tag-inline">Week 4–5</span></b><p>One or two days on set depending on the plan. Days on set, cast size, locations, and set builds are what move a quote between $50,000 and $100,000 — the idea doesn't move it, a great script costs the same to shoot as a mediocre one.</p></div></li>
+          <li><div><b>One Hero, three Pillars <span class="tag-inline">Week 4–5</span></b><p>The 30-second Hero and three 15-second Pillars locked back in Ad Spark, all shot on set. The Pillars are not cutdowns — each is its own ad, written and shot on its own.</p></div></li>
+          <li><div><b>Every social version <span class="tag-inline">Final delivery</span> <span class="tag-inline every">Standard plan and up</span></b><p>With and without subtitles, in every format you'll run — 1:1, 16:9, and 9:16 — with a recommendation on where each version plays best.</p></div></li>
+          <li><div><b>Photos from set <span class="tag-inline">Week 4–5</span> <span class="tag-inline every">Standard plan and up</span></b><p>Real stills from the shoot day for the site, decks, and paid social — not stock, not renders.</p></div></li>
         </ol>
-        <div class="thumbstrip">
-          <img src="/assets/still-foxit.webp" alt="Still from the Foxit Ad Suite" loading="lazy">
-          <img src="/assets/thumb-devsquad.webp" alt="Still from the DevSquad Ad Suite" loading="lazy">
-          <img src="/assets/thumb-steno.webp" alt="Still from the Steno Ad Suite" loading="lazy">
+        <p class="fine note">The amount of content and the specific formula may be adjusted during the Ad Spark process — the point is to be flexible for the best results for the brand.</p>
+        <div class="eyebrow" style="margin-top:var(--s-4)">The assets you get</div>
+        <div class="asset-grid">
+          <div class="shot"><img src="/assets/loxo-rrc-hero.webp" alt="Loxo Recruiter Recovery Center — Hero spot still" loading="lazy"><span class="shot-tag">Hero — 30 seconds</span></div>
+          <div class="shot"><img src="/assets/loxo-rrc-pillar1.webp" alt="Loxo Recruiter Recovery Center — Pillar still" loading="lazy"><span class="shot-tag">Pillar 1 — 15 seconds</span></div>
+          <div class="shot"><img src="/assets/loxo-rrc-pillar2.webp" alt="Loxo Recruiter Recovery Center — Pillar still" loading="lazy"><span class="shot-tag">Pillar 2 — 15 seconds</span></div>
+          <div class="shot"><img src="/assets/loxo-rrc-pillar3.webp" alt="Loxo Recruiter Recovery Center — Pillar still" loading="lazy"><span class="shot-tag">Pillar 3 — 15 seconds</span></div>
+          <div class="shot asset-photo"><img src="/assets/loxo-rrc-photos.webp" alt="Loxo Recruiter Recovery Center — cutout photos from set" loading="lazy"><span class="shot-tag">Photos from set — 12 polished photos, 100+ raw images</span></div>
         </div>
-        <div class="eyebrow" style="margin-top:var(--s-4)">From locked scripts to delivery</div>
-        <div class="timeline">
-          <div class="wk on"><small>~4 weeks</small><span>Pre-production: casting, locations, wardrobe</span></div>
-          <div class="wk on"><small>Shoot days</small><span>One or two days on set, per the plan</span></div>
-          <div class="wk on"><small>~3–4 weeks</small><span>Post-production: edit, color, sound, delivery</span></div>
-        </div>
-        <p class="fine note">10 to 16 weeks total from the start of Ad Spark — most campaigns land around 13. This is just the back half, after scripts lock and the lookbook is approved. The client owns everything made for them; talent agreements are pre-negotiated so renewing usage past two years is easy and affordable.</p>
         <div class="quotes" style="margin-top:var(--s-4)">
           <div class="quote">
-            <img src="/assets/headshot-amy-glass.webp" alt="Amy Glass, MediQuant" loading="lazy">
-            <p>"You took the risk out of it by saying, let's get that first part done and get your confidence that we can really do this... and then you can invest the big dollars in getting it done. That was the biggest help."<b style="display:block;margin-top:10px;font-family:var(--body);font-size:.8125rem;color:var(--ink-2);font-weight:600;letter-spacing:0">Amy Glass, VP of Marketing &amp; Comms, MediQuant</b></p>
+            <img src="/assets/headshot-sam-kuehnle.webp" alt="Sam Kuehnle, Loxo" loading="lazy">
+            <p>"We had our best year in company history for pipeline generation... so let's gooooooooo!"<b style="display:block;margin-top:10px;font-family:var(--body);font-size:.8125rem;color:var(--ink-2);font-weight:600;letter-spacing:0">Sam Kuehnle, VP of Marketing, Loxo</b></p>
           </div>
         </div>
-        <a class="ex-link" style="margin-top:var(--s-3)" href="https://deck.freeb2bads.com/#/step-1" target="_blank" rel="noopener">See a real Ad Suite in the deck →</a>
+        <a class="hero-link" style="margin-top:var(--s-3);display:inline-block" href="https://freeb2bads.com/#work">See All the Ad Suites</a>
       </div>
     </div>
   </section>
@@ -457,7 +462,7 @@ p{margin:0}
     <div>
       <div class="eyebrow">Next step</div>
       <h2 style="margin-bottom:6px">Confirm Ad Spark.</h2>
-      <p style="color:var(--ink-2);max-width:44ch">Let us know you're ready over email, or book a thirty-minute call to talk it through. Campaign directions are in front of <span data-pz="client_name">[Client]</span> about a week after kickoff.</p>
+      <p style="color:var(--ink-2);max-width:44ch">Let us know you're ready over email, or book a thirty-minute call to talk it through. Campaign directions are in front of <span data-pz="client_name">[Client]</span> about a week or two after kickoff.</p>
     </div>
     <div class="cta-btns">
       <a class="btn-secondary" href="mailto:chandler@thevideobrothers.com?subject=Confirming%20Ad%20Spark">Confirm by Email</a>

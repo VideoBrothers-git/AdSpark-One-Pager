@@ -24,16 +24,19 @@ import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_PATH = os.path.join(ROOT, 'template.html')
+LOGOS_DIR = os.path.join(ROOT, 'assets', 'logos')
+LOGO_EXTS = ('svg', 'png', 'jpg', 'jpeg', 'webp')
 
 CLIENTS = [
     {"name": "EvenUp", "slug": "evenup"},
     {"name": "Nudge Security", "slug": "nudge-security"},
+    {"name": "Riskified", "slug": "riskified"},
 ]
 
 # (exact text in template.html, generic replacement)
 GENERIC_SUBS = [
     (
-        '<div class="mast-for">\n'
+        '<div class="mast-for"><!--LOGO_SLOT-->\n'
         '        <div class="mast-for-text"><small>Prepared for</small><b data-pz="client_name">[Client]</b></div>\n'
         '      </div>\n'
         '    </div>',
@@ -62,6 +65,15 @@ GENERIC_SUBS = [
 ]
 
 
+def find_logo(slug):
+    """Return the root-relative /assets/logos/<slug>.<ext> path if a logo file
+    for this client has been dropped in assets/logos/, else None."""
+    for ext in LOGO_EXTS:
+        if os.path.exists(os.path.join(LOGOS_DIR, f'{slug}.{ext}')):
+            return f'/assets/logos/{slug}.{ext}'
+    return None
+
+
 def make_generic(html):
     out = html
     for old, new in GENERIC_SUBS:
@@ -78,8 +90,16 @@ def make_generic(html):
     return out
 
 
-def make_bespoke(html, name):
+def make_bespoke(html, name, slug):
     out = html.replace('data-pz="client_name">[Client]<', f'data-pz="client_name">{name}<')
+    logo = find_logo(slug)
+    if logo:
+        out = out.replace(
+            '<!--LOGO_SLOT-->',
+            f'<img class="mast-for-logo" src="{logo}" alt="{name} logo"><div class="mast-for-divider"></div>'
+        )
+    else:
+        out = out.replace('<!--LOGO_SLOT-->', '')
     if '[Client]' in out:
         raise SystemExit(f"generate.py: bespoke page for {name!r} still contains a literal '[Client]'.")
     return out
@@ -101,7 +121,7 @@ def main():
 
     write(os.path.join(ROOT, 'index.html'), make_generic(template))
     for c in CLIENTS:
-        write(os.path.join(ROOT, 'clients', c['slug'], 'index.html'), make_bespoke(template, c['name']))
+        write(os.path.join(ROOT, 'clients', c['slug'], 'index.html'), make_bespoke(template, c['name'], c['slug']))
 
 
 if __name__ == '__main__':
