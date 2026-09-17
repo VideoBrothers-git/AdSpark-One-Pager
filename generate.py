@@ -36,7 +36,17 @@ CLIENTS = [
     {"name": "NJB Protection", "slug": "njb-protection"},
     {"name": "Outbound Sales Pros", "slug": "outbound-sales-pros"},
     {"name": "Onevision Resources", "slug": "onevision-resources"},
+    {"name": "Sensor Tower", "slug": "sensor-tower"},
 ]
+
+# Per-client copy overrides applied on top of the normal name substitution,
+# for the rare case a number or line needs to differ for one prospect only.
+# {slug: [(exact text in template.html, replacement)]}
+CLIENT_OVERRIDES = {
+    "sensor-tower": [
+        ("At $300,000+ in media,", "At $400,000+ in media,"),
+    ],
+}
 
 # (exact text in template.html, generic replacement)
 GENERIC_SUBS = [
@@ -107,6 +117,13 @@ def make_bespoke(html, name, slug):
         out = out.replace('<!--LOGO_SLOT-->', '')
     if '[Client]' in out:
         raise SystemExit(f"generate.py: bespoke page for {name!r} still contains a literal '[Client]'.")
+    for old, new in CLIENT_OVERRIDES.get(slug, []):
+        if old not in out:
+            raise SystemExit(
+                f"generate.py: a CLIENT_OVERRIDES entry for {slug!r} no longer matches "
+                "template.html -- update it to match, then re-run.\nMissing text:\n  " + old
+            )
+        out = out.replace(old, new)
     return out
 
 
