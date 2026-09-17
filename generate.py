@@ -32,6 +32,10 @@ CLIENTS = [
     {"name": "Nudge Security", "slug": "nudge-security"},
     {"name": "Riskified", "slug": "riskified"},
     {"name": "Leanafy", "slug": "leanafy"},
+    {"name": "Linxup", "slug": "linxup"},
+    {"name": "NJB Protection", "slug": "njb-protection"},
+    {"name": "Outbound Sales Pros", "slug": "outbound-sales-pros"},
+    {"name": "Onevision Resources", "slug": "onevision-resources"},
 ]
 
 # (exact text in template.html, generic replacement)
