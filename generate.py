@@ -31,6 +31,7 @@ CLIENTS = [
     {"name": "EvenUp", "slug": "evenup"},
     {"name": "Nudge Security", "slug": "nudge-security"},
     {"name": "Riskified", "slug": "riskified"},
+    {"name": "Leanafy", "slug": "leanafy"},
 ]
 
 # (exact text in template.html, generic replacement)
