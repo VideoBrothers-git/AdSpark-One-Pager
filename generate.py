@@ -82,6 +82,10 @@ GENERIC_SUBS = [
         'in front of <span data-pz="client_name">[Client]</span> about a week',
         'in front of you about a week'
     ),
+    (
+        'stretch across every place <span data-pz="client_name">[Client]</span> already shows up',
+        'stretch across every place your brand already shows up'
+    ),
 ]
 
 
