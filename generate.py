@@ -52,6 +52,12 @@ CLIENT_OVERRIDES = {
     "conveyor": [
         ("At $300,000+ in media,", "At $400,000+ in media,"),
     ],
+    "hexagon-it-solutions": [
+        (
+            '<span data-pz="client_name">Hexagon IT Solutions</span>\'s journey',
+            '<span data-pz="client_name">Hexagon</span>\'s journey'
+        ),
+    ],
 }
 
 # (exact text in template.html, generic replacement)
